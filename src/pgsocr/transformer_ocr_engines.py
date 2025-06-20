@@ -18,7 +18,7 @@ def fixed_get_imports(filename: str | os.PathLike) -> list[str]:
 class Florence2OCREngine:
     def __init__(self):
         self.device = "cuda:0" if torch.cuda.is_available() else "cpu"
-        model_id = "microsoft/Florence-2-large-ft"
+        model_id = "microsoft/Florence-2-base-ft"
         with patch(
             "transformers.dynamic_module_utils.get_imports", fixed_get_imports
         ):  # workaround for unnecessary flash_attn requirement
